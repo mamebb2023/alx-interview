@@ -7,6 +7,8 @@
 def pascal_triangle(n):
     """ Prints the Pascal Triangle """
     arr = []
+    if (n <= 0):
+        return (arr)
     for i in range(n):
         a = []
         for j in range(i + 1):
