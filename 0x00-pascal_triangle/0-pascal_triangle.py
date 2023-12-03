@@ -1,4 +1,7 @@
+#!/usr/bin/python3
+
 def pascal_triangle(n):
+    """ Prints the Pascal Triangle """
     triangle = []
     for i in range(n):
         row = []
