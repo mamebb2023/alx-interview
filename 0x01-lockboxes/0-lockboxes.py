@@ -1,4 +1,9 @@
+#!/usr/bin/python3
+""" LockBoxes """
+
+
 def canUnlockAll(boxes):
+    """ Can all the boxes be unlocked? """
     keys = set()
     opened = []
     i = 0
@@ -18,8 +23,3 @@ def canUnlockAll(boxes):
         if i not in opened:
             return False
     return True
-
-
-if __name__ == "__main__":
-    boxes = [[1, 4], [2], [0, 4, 1], [3], [], [4, 1], [5, 6]]
-    print(canUnlockAll(boxes))
