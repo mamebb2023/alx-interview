@@ -4,7 +4,7 @@ import sys
 import re
 
 
-def output(log: dict) -> None:
+def _print(log: dict) -> None:
     """ Display stats """
     print("File size: {}".format(log["file_size"]))
     for code in sorted(log["code_frequency"]):
@@ -37,6 +37,6 @@ if __name__ == "__main__":
                     log["code_frequency"][code] += 1
 
                 if (lines % 10 == 0):
-                    output(log)
+                    print(log)
     finally:
-        output(log)
+        _print(log)
