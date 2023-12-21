@@ -37,6 +37,6 @@ if __name__ == "__main__":
                     log["code_frequency"][code] += 1
 
                 if (lines % 10 == 0):
-                    print(log)
+                    _print(log)
     finally:
         _print(log)
