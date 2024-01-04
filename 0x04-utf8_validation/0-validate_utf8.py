@@ -1,34 +1,36 @@
 #!/usr/bin/python3
-""" UTF8 Validation
+""" UTF-8 validation
 """
 from typing import List
 
 
-def validUTF8(data: List[int]) -> bool:
-    """ Checkes if a given data is a valid UTF8 encoding
-
+def validUTF8(data):
+    """ Checkes if a given data is a valid UTF-8
     Args:
-        data (list[int]): list of ints
-
-    Return: a True if valid or False if otherwise
+        data (list): list of ints
+    Return:
+        True if valid and False if other wise
     """
-    count = 0  # Keeping track of bytes
+    count = 0
     for byte in data:
+        byte &= 0xFF
+
         if count == 0:
-            # Check the first byte of a character
-            if (byte >> 7) == 0:  # 0b0xxxxxxx
+            if byte < 0x80:  # Single-byte
                 count = 0
-            elif (byte >> 5) == 0b110:  # 0b110xxxxx
+            elif byte < 0xC2:  # Invalid start byte
+                return False
+            elif byte < 0xE0:  # Two-byte char
                 count = 1
-            elif (byte >> 4) == 0b1110:  # 0b1110xxxx
+            elif byte < 0xF0:  # Three-byte char
                 count = 2
-            elif (byte >> 5) == 0b11110:  # 0b11110xxx
+            elif byte < 0xF8:  # Four-byte char
                 count = 3
-            else:  # Invalid starting byte
+            else:  # Invalid start byte
                 return False
         else:
-            # Check subsequent continuation bytes
-            if (byte >> 6) != 0b10:  # not 0b10xxxxxx
+            # Check continuation byte
+            if byte < 0x80 or byte > 0xBF:  # Invalid continuation bute
                 return False
             count -= 1
 
