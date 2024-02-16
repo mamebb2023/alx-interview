@@ -4,6 +4,8 @@
 
 
 def get_first_prime(values):
+    """ Get the first prime number from the list
+    """
     for i in values:
         if isPrime(i):
             return [v for v in values if v % i != 0]
