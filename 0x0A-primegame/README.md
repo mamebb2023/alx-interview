@@ -10,11 +10,11 @@
     <li>You can assume n and x will not be larger than 10000</li>
     <li>You cannot import any packages in this task</li>
 </ul>
-## Example:
 
----
+<p style="font-weight: bold">Example:</p>
+`
     x = 3, nums = [4, 5, 1]
----
+`
 
 First round: 4
 
