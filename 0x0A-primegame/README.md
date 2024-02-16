@@ -12,9 +12,8 @@
 </ul>
 
 <p style="font-weight: bold">Example:</p>
-`
+
     x = 3, nums = [4, 5, 1]
-`
 
 First round: 4
 
